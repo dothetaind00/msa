@@ -1,6 +1,8 @@
 package org.interview.order.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.interview.order.client.PaymentClient;
+import org.interview.order.client.dto.PaymentContactDto;
 import org.interview.order.dto.OrderContactDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +17,18 @@ public class OrderController {
 
     private final OrderContactDTO orderContactDTO;
 
+    private final PaymentClient paymentClient;
+
     @GetMapping("contact")
     public ResponseEntity<OrderContactDTO> getOrderContact() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(orderContactDTO);
+    }
+
+    @GetMapping("payment")
+    public ResponseEntity<PaymentContactDto> getPaymentContact() {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(paymentClient.getPaymentContact().getBody());
     }
 
 }
