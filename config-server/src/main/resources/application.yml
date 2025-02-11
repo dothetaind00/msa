@@ -14,6 +14,7 @@ spring:
           #search-locations: "classpath:/config"
         git:
           uri: "https://github.com/dothetaind00/msa-config.git"
+          default-label: main
           timeout: 5 #seconds
           force-pull: true
           clone-on-start: true
@@ -28,6 +29,15 @@ management:
     web:
       exposure:
         include: "*"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
 
 encrypt:
   key: "taidt15@fpt.com"

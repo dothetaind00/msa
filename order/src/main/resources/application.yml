@@ -26,8 +26,36 @@ spring:
     password: "guest"
     username: "guest"
 
+# actuator dependency
 management:
   endpoints:
     web:
       exposure:
         include: "*" #refresh
+  endpoint:
+    shutdown:
+      access: unrestricted # enabled: true is deprecated
+  info:
+    env:
+      enabled: true # eureka
+
+# setting is no required and can be ignored
+endpoints:
+  shutdown:
+    enabled: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+
+# show info to eureka dashboard
+info:
+  app:
+    name: order
+    description: "Easy Bank Order application"
+    version: "1.0.0"
