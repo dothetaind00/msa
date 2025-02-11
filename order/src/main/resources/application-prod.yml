@@ -1,0 +1,8 @@
+order:
+  name: "order-test-prod"
+  contactDetails:
+    name: "order-test-name"
+    email: "order-test-email"
+  onCallSupport:
+    - 0369123456
+    - 0369654321

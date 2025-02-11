@@ -1,0 +1,33 @@
+server:
+  port: 8071
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    #active: native
+    active: git
+  cloud:
+    config:
+      server:
+        #native:
+          #search-locations: "classpath:/config"
+        git:
+          uri: "https://github.com/dothetaind00/msa-config.git"
+          timeout: 5 #seconds
+          force-pull: true
+          clone-on-start: true
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    password: "guest"
+    username: "guest"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+encrypt:
+  key: "taidt15@fpt.com"
