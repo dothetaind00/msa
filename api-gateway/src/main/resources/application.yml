@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: "optional:configserver:http://localhost:8071"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # connect to service discovery (eureka server) for locate all the details microservices
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #refresh
+  endpoint:
+    gateway:
+      access: unrestricted
+  info:
+    env:
+      enabled: true # eureka
+
+info:
+  app:
+    name: api-gateway
+    description: "Easy Bank Gateway application"
+    version: "1.0.0"
