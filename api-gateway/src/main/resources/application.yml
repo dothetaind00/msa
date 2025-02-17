@@ -8,6 +8,7 @@ spring:
       discovery:
         locator:
           enabled: true # connect to service discovery (eureka server) for locate all the details microservices
+          lower-case-service-id: true
 
 management:
   endpoints:

@@ -25,7 +25,7 @@ public class OrderController {
                 .body(orderContactDTO);
     }
 
-    @GetMapping("payment")
+    @GetMapping("payment/contact")
     public ResponseEntity<PaymentContactDto> getPaymentContact() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(paymentClient.getPaymentContact().getBody());
