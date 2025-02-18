@@ -19,7 +19,7 @@ spring:
           force-pull: true
           clone-on-start: true
   rabbitmq:
-    host: "host.docker.internal"
+    host: "localhost"
     port: 5672
     password: "guest"
     username: "guest"

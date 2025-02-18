@@ -2,6 +2,11 @@ server:
   port: 8085
 
 spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
   application:
     name: payment
   profiles:
@@ -49,3 +54,9 @@ info:
     name: payment
     description: "Easy Bank Payment application"
     version: "1.0.0"
+
+logging:
+  level:
+    org:
+      interview:
+        payment: DEBUG

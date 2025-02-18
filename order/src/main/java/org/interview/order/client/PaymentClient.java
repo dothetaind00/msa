@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient("payment")
+@FeignClient(name = "payment", fallback = PaymentFallback.class) // or name="payment"
 public interface PaymentClient {
     @GetMapping(value = "api/payments/contact")
     ResponseEntity<PaymentContactDto> getPaymentContact();
