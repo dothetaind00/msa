@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.interview.order.client.PaymentClient;
 import org.interview.order.client.dto.PaymentContactDto;
 import org.interview.order.dto.OrderContactDTO;
+import org.interview.order.microservice.CicMicroservice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,12 @@ public class OrderController {
         logger.debug("msa-correlation-id found: {} ", correlationId);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(paymentClient.getPaymentContact().getBody());
+    }
+
+    @GetMapping("test123")
+    public void test() {
+        CicMicroservice microservice = new CicMicroservice();
+        microservice.checkORSCustomerCIC();
     }
 
 }
